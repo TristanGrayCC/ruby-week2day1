@@ -77,10 +77,10 @@ attr_accessor :books
     student_name: "",
     date: ""}})
  end
- def change_rental(title, student, date)
+ def change_rental(title, new_name, date)
    for book in @books
      if book[:title] == title
-       book[:rental_details][:student_details] = student,
+       book[:rental_details][:student_name] = new_name,
        book[:rental_details][:date] = date
      end
    end

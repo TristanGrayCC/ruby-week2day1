@@ -143,9 +143,9 @@ class TestLibrary < MiniTest::Test
      date: ""}})
   end
   def test_rental_change
-    @our_library.change_rental("new_book","Dave", "07/07/97")
-    result = @our_library.find_rental("new_book")
+    @our_library.change_rental("fake_book", "Dave", "27/08/00")
+    result = @our_library.find_rental("fake_book")
     assert_equal({student_name: "Dave",
-     date: "07/07/97"}, result)
+     date: "27/08/00"}, result)
   end
 end
