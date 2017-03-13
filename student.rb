@@ -46,3 +46,43 @@ class SportsTeam
     end
   end
 end
+
+class Library
+
+attr_accessor :books
+
+  def initialize(books)
+    @books = books
+  end
+ def book_details
+   puts @books
+ end
+ def find_book(title)
+  for book in @books
+    if book[:title] == title
+      return book
+    end
+  end
+ end
+ def find_rental(title)
+  for book in @books
+    if book[:title] == title
+      return book[:rental_details]
+    end
+  end
+ end
+ def add_book(title)
+   @books.push({title: title,
+   rental_details: {
+    student_name: "",
+    date: ""}})
+ end
+ def change_rental(title, student, date)
+   for book in @books
+     if book[:title] == title
+       book[:rental_details][:student_details] = student,
+       book[:rental_details][:date] = date
+     end
+   end
+ end
+end
