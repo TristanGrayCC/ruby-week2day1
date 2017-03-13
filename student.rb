@@ -1,5 +1,4 @@
 class Student
-  attr_accessor :name, :cohort
 
   def initialize(name, cohort)
     @name = name
@@ -18,9 +17,20 @@ class Student
     @cohort = new_cohort
   end
   def talk
-    returns "I can talk!"
+    return "I can talk!"
   end
-  def fav_language(student,language)
-    returns "#{student} loves #{language}"
+  def fav_language(language)
+    return "#{self.name} loves #{language}"
+  end
+end
+
+class SportsTeam
+
+  attr_accessor :name, :players, :coach
+
+  def initialize(name, players, coach)
+    @name = name
+    @players = players
+    @coach = coach
   end
 end
