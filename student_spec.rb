@@ -34,14 +34,14 @@ end
 class TestSportsTeam < MiniTest::Test
 
   def setup
-    @team_a = SportsTeam.new("Wildcats",22, "JimBob")
+    @team_a = SportsTeam.new("Wildcats",["Tom", "Callum", "David"], "JimBob")
   end
 
   def test_name
     assert_equal("Wildcats", @team_a.name)
   end
   def test_players
-    assert_equal(22, @team_a.players)
+    assert_equal(["Tom", "Callum", "David"], @team_a.players)
   end
   def test_coach
     assert_equal("JimBob", @team_a.coach)
@@ -51,11 +51,27 @@ class TestSportsTeam < MiniTest::Test
     assert_equal("Fighting Phoenix", @team_a.name)
   end
   def test_players_change
-    @team_a.players = 25
-    assert_equal(25, @team_a.players)
+    @team_a.players = []
+    assert_equal([], @team_a.players)
   end
   def test_coach_change
     @team_a.coach = "Bob"
     assert_equal("Bob", @team_a.coach)
+  end
+  def test_add_player
+    @team_a.add_player("Richard")
+    assert_equal(["Tom", "Callum", "David", "Richard"], @team_a.players)
+  end
+  def test_check_player
+    result = @team_a.check_player?("Tom")
+    assert_equal(true, result)
+  end
+  def test_points_change
+    @team_a.points_change("Won")
+    assert_equal(5, @team_a.points)
+  end
+  def test_points_change
+    @team_a.points_change("Lost")
+    assert_equal(0, @team_a.points)
   end
 end
